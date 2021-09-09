@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  padding: 15px;
+}
+
+h1 {
+  font-size: 24px;
+  color: #4f4f4f;
+  margin-bottom: 20px;
+}
+
+p {
+  font-family: 'Ubuntu Mono', sans-serif;
+  font-size: 12px;
+  color: #333333;
+  margin-bottom: 10px;
+
+  &.hover {
+    color: #828282;
+  }
+}
+
+.row {
+  display: flex;
+  padding: 15px 0;
+  gap: 150px;
+}
