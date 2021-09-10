@@ -144,6 +144,9 @@ function App() {
           </Button>
         </div>
       </div>
+      <footer>
+        created by <strong>lauris91</strong> - devChallenges.io
+      </footer>
     </div>
   )
 }

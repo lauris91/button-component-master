@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins:wght@500&family=Ubuntu+Mono&display=swap');
 
 * {
   font-family: 'Poppins', sans-serif;
@@ -43,4 +42,12 @@ p {
       min-width: 200px;
     }
   }
+}
+
+footer {
+  font-family: 'Montserrat';
+  font-weight: 500;
+  color: #a9a9a9;
+  font-size: 14px;
+  margin-top: 30px;
 }
