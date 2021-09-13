@@ -5,7 +5,7 @@ import './button.scss'
 
 const Button = ({
   variant = 'default',
-  color,
+  color = 'default',
   disableShadow,
   children,
   startIcon,
@@ -17,7 +17,6 @@ const Button = ({
   const classes = classnames({
     btn: true,
     [`btn--${variant}`]: variant,
-    [`btn--color-default`]: !color,
     [`btn--color-${color}`]: color,
     'btn--disableShadow': disableShadow,
     'btn--disabled': others.disabled,
