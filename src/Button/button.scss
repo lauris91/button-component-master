@@ -64,6 +64,7 @@ $sizes: (
       &:focus,
       &:hover:not(:disabled) {
         background-color: nth($color, 4);
+        cursor: pointer;
       }
 
       &.hover {
