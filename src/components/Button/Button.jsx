@@ -1,7 +1,7 @@
 import React from 'react'
-import './button.scss'
+import classnames from 'classnames'
 
-const classNames = require('classnames')
+import './button.scss'
 
 const Button = ({
   variant = 'default',
@@ -14,7 +14,7 @@ const Button = ({
   hover,
   ...others
 }) => {
-  const classes = classNames({
+  const classes = classnames({
     btn: true,
     [`btn--${variant}`]: variant,
     [`btn--color-default`]: !color,

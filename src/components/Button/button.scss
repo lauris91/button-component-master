@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
 
+@function getColor($name, $color) {
+  @if $name == default {
+    @return nth($color, 2);
+  }
+  @return nth($color, 1);
+}
+
 $light-grey: #e0e0e0;
 $dark-grey: #3f3f3f;
 $grey-hover: #aeaeae;
@@ -50,68 +57,63 @@ $sizes: (
   font-size: 14px;
   outline: none;
   border: none;
-  padding: 8px 16px;
   border-radius: 6px;
   align-items: center;
   display: flex;
+  transition: all 0.3s;
+  border-width: 1px;
+  border-style: solid;
+  box-sizing: border-box;
 
   @each $name, $color in $colors {
     &--color-#{$name} {
       background-color: nth($color, 1);
       color: nth($color, 2);
+      border-color: nth($color, 1);
       box-shadow: nth($color, 3);
 
       &:focus,
       &:hover:not(:disabled) {
         background-color: nth($color, 4);
+        border-color: nth($color, 1);
         cursor: pointer;
       }
 
       &.hover {
         background-color: nth($color, 4);
+        border-color: nth($color, 1);
       }
 
       &.btn--outline {
-        border: 1px solid nth($color, 1);
-        color: nth($color, 1);
+        border: 1px solid getColor($name, $color);
+        color: getColor($name, $color);
         background: white;
-        padding: 8px 20px;
 
         &:focus,
         &:hover:not(:disabled) {
-          background-color: rgba(nth($color, 1), 0.1);
+          background-color: rgba(getColor($name, $color), 0.1);
         }
 
         &.hover {
-          background-color: rgba(nth($color, 1), 0.1);
+          background-color: rgba(getColor($name, $color), 0.1);
         }
       }
 
       &.btn--text {
         background: none;
         box-shadow: none;
-        @if $name == default {
-          color: nth($color, 2);
-        } @else {
-          color: nth($color, 1);
-        }
-        padding: 8px 20px;
+        color: getColor($name, $color);
+        border-color: transparent;
 
         &:hover:not(:disabled),
         &:focus {
-          @if $name == default {
-            background: rgba(nth($color, 2), 0.1);
-          } @else {
-            background: rgba(nth($color, 1), 0.1);
-          }
+          background: rgba(getColor($name, $color), 0.1);
+          border-color: transparent;
         }
 
         &.hover {
-          @if $name == default {
-            background: rgba(nth($color, 2), 0.1);
-          } @else {
-            background: rgba(nth($color, 1), 0.1);
-          }
+          background: rgba(getColor($name, $color), 0.1);
+          border-color: transparent;
         }
       }
 
@@ -119,11 +121,6 @@ $sizes: (
       &.btn--endIcon {
         color: nth($color, 2);
         background: nth($color, 1);
-
-        // &:focus,
-        // &:hover:not(:disabled) {
-        //   background: #0039cb;
-        // }
       }
     }
   }
