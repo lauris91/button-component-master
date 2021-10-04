@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 
-import './button.scss'
+import '../../styles/styles.scss'
 
 const Button = ({
   variant = 'default',

@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
-
 @function getColor($name, $color) {
   @if $name == default {
     @return nth($color, 2);
@@ -152,8 +150,4 @@ $sizes: (
       padding: $size;
     }
   }
-}
-
-.material-icons {
-  font-size: 14px;
 }

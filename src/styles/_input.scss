@@ -1,0 +1,149 @@
+$font-family: 'Noto Sans Jp', sans-serif;
+
+$light-grey: #e0e0e0;
+$grey: #828282;
+$grey-x: #333333;
+$primary: #2962ff;
+$disabled: #f2f2f2;
+$danger: #d32f2f;
+
+$sizes: (
+  sm: 10px 12px,
+  md: 18px 12px,
+);
+
+input,
+textarea {
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+}
+
+.input-block {
+  font-family: $font-family;
+  display: inline-flex;
+  flex-direction: column-reverse;
+  position: relative;
+
+  label {
+    font-size: 12px;
+    display: block;
+    margin-bottom: 4px;
+    color: $grey-x;
+  }
+
+  .input-field {
+    &:focus-within {
+      + label {
+        color: $primary;
+      }
+    }
+
+    input,
+    textarea {
+      font-size: 14px;
+      border-style: solid;
+      border-width: 1px;
+      border-color: $grey;
+      border-radius: 8px;
+      color: $grey-x;
+      font-family: $font-family;
+      width: 100%;
+
+      &:hover:not(:disabled):not(:focus) {
+        border-color: $grey-x;
+      }
+
+      &:focus {
+        border-color: $primary;
+      }
+
+      &:disabled {
+        background: $disabled;
+        border-color: $light-grey;
+      }
+
+      &::placeholder {
+        color: $grey;
+      }
+
+      &.input--startIcon,
+      &.input--endIcon {
+        ~ .material-icons {
+          position: absolute;
+          content: '';
+          top: 50%;
+        }
+      }
+
+      &.input--startIcon {
+        padding-left: 45px;
+
+        ~ .material-icons {
+          left: 10px;
+        }
+      }
+
+      &.input--endIcon {
+        ~ .material-icons {
+          right: 10px;
+        }
+      }
+    }
+  }
+
+  textarea {
+    padding: 18px 12px;
+  }
+
+  .helper-text {
+    margin-top: 4px;
+    font-size: 10px;
+    color: $grey;
+  }
+
+  &--fullWidth {
+    display: flex;
+  }
+
+  &--error {
+    .input-field {
+      input,
+      textarea {
+        border-color: $danger;
+      }
+
+      + label {
+        color: $danger;
+      }
+
+      &:hover {
+        + label {
+          color: $grey-x;
+        }
+      }
+      &:focus-within {
+        + label {
+          color: $danger;
+        }
+      }
+
+      input:focus,
+      textarea:focus {
+        border-color: $danger;
+      }
+    }
+
+    .helper-text {
+      color: $danger;
+    }
+  }
+
+  @each $name, $size in $sizes {
+    &--#{$name} {
+      input {
+        padding: $size;
+      }
+    }
+  }
+}
